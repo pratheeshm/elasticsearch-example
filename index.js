@@ -1,0 +1,11 @@
+var express=require('express');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var database=require('./config/db');
+var server=require('./config/server');
+var routes=require('./app/routes/index');
+var app=express();
+app.use(bodyParser.json());
+routes(app);
+mongoose.connect(database.url);
+app.listen(server.port);
