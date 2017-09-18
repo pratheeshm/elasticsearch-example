@@ -6,11 +6,9 @@ module.exports.addCart = function(product, callback){
             res.send("error in find")
         }
         if(result.length!=0){
-            console.log("update===>");
-            Cart.update({productID:product.productID},{quantity:product.quantity},callback);
+            Cart.findOneAndUpdate({productID:product.productID},{quantity:(result[0].quantity+product.quantity)},callback);
         }
         else if(result.length==0){
-            console.log("create===>");
 
         Cart.create(product,callback);
         }
