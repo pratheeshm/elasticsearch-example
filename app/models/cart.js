@@ -8,7 +8,8 @@ var productSchema=new Schema({
         type:String
     },
     price:{
-        type:Number
+        type:Number,
+        required:true
     },
     quantity:{
         type:Number

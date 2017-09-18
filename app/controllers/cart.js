@@ -1,17 +1,18 @@
 var Cart=require('../services/cart');
+var error={
+	status:422,
+	error:"parameter required"
+}
 module.exports=function(req,res){
 	if(!req.body.hasOwnProperty('item')){
-		var err={
-			status:422,
-			error:"parameter required"
-		}
-		res.send(err);
+		
+		res.send(error);
 		return;
 	}
 	Cart.addCart(req.body.item,(err, products) => {
 		if(err){
-		
-			res.send("Error");
+			res.send(error);
+			return;
 		}
 		var result={
 			status:200,
