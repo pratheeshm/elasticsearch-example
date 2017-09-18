@@ -31,8 +31,8 @@ module.exports=function(req,res){
 		paramTypeCheck=true;
 		return res.send(err);
 	}
-	minPrice=parseInt(req.query.min_price)|0;
-	maxPrice=parseInt(req.query.max_price)|1000000;
+	minPrice=parseInt(req.query.min_price)||0;
+	maxPrice=parseInt(req.query.max_price)||1000000;
 	limit=parseInt(req.query.limit)|0;
 		Products.getProducts(minPrice,maxPrice,limit,(err, products) => {
 			if(err){
