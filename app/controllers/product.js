@@ -2,6 +2,7 @@ var Products=require('../services/product')
 var paramMatchCheck=true;
 var paramTypeCheck=true;
 module.exports=function(req,res){
+	
 	Object.keys(req.query).forEach((key)=>{
 		if(paramMatchCheck &&
 			(key=='min_price'

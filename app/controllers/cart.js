@@ -4,6 +4,8 @@ var error={
 	error:"parameter required"
 }
 module.exports=function(req,res){
+	res.header("Access-Control-Allow-Origin","*");
+	
 	if(!req.body.hasOwnProperty('item')){
 		
 		res.send(error);
