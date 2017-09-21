@@ -1,6 +1,7 @@
 var students=require('../services/student')
-var arr=[];
 module.exports=function(req,res){
+	var arr=[];
+	
 		students.getStudents((err,data,status) => {
 			if(err){
 				res.send("error");
