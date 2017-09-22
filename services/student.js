@@ -1,4 +1,4 @@
-const client = require('../../config/connect.js')
+const client = require('./connect')
 
 module.exports.getStudents = (callback) => {
     client.search({

@@ -1,7 +1,7 @@
 var express=require('express');
 var bodyParser = require('body-parser');
-var server=require('./app/config/server');
-var routes=require('./app/client/routes/index');
+var env=require('./config/development/env/index');
+var routes=require('./routes/index');
 var app=express();
 app.use(bodyParser.json());
 app.use(function(req,res,next){
@@ -9,5 +9,5 @@ app.use(function(req,res,next){
 res.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
 next();})
 routes(app);
-require('./app/config/connect.js');
-app.listen(server.port);
+require('./services/connect');
+app.listen(env.port);

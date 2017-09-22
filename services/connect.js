@@ -1,6 +1,6 @@
 var elasticsearch = require('elasticsearch');
-var database=require('./db.js');
+var env=require('../config/development/env/index');
 var client = new elasticsearch.Client({
-    host: database.url
+    host: env.url
   });
   module.exports=client;
