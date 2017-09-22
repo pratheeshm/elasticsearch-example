@@ -5,6 +5,7 @@ module.exports=function(req,res){
 		students.getStudents((err,data,status) => {
 			if(err){
 				res.send("error");
+				return;
 			}
 			data.hits.hits.map((student)=>{
 				arr.push(student._source);

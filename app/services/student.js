@@ -2,7 +2,33 @@ const client = require('../../config/connect.js')
 
 module.exports.getStudents = (callback) => {
     client.search({
-        q: '*'
+        index:"students",
+        body:{
+            query:{
+                regexp:{
+                    name:".*r.*"
+                }
+            }
+        }
       },callback);
+}
+
+module.exports.updateStudent=(callback)=>{
+    client.updateByQuery({
+        index:"students",
+        type:"student",
+        body: {
+            query: 
+            { 
+                match: 
+                { 
+                    name:"rahul"
+                 } 
+            },
+            script:{"inline":"ctx._source.age=20"}
+            
+           }
+    },callback);
+
 }
  
